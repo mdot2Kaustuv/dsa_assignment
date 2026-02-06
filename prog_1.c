@@ -14,7 +14,8 @@ void initStack(struct Stack* s) {
 }
 
 int isEmpty(struct Stack* s);
-int isfull(struct Stack* s);
+
+int isfull(struct Stack* s) ;
 
 void push(struct Stack* s, char c) {
     if ( !isfull(s) ) {
@@ -43,8 +44,7 @@ int checkbalanced(char *w) {
 
     for (int i = 0; i < strlen(w); i++) {
         char word = w[i];
-
-        if (word == '(' || word == '{' || word == '[') {
+    if (word == '(' || word == '{' || word == '[') {
             push(&s, word);
         } 
         else if (word == ')' || word == '}' || word == ']') {
