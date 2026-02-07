@@ -2,6 +2,8 @@
 # include <stdlib.h>
 # include <time.h>
 
+int c , s ;
+
 
 void randomarray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
@@ -13,27 +15,29 @@ void swap(int* a, int* b) {
     int temp = *a;
     *a = *b;
     *b = temp;
+     s  ++;
 }
 
 void  bubblesort(int arr[], int size) {
-    int count = 0;
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (arr[j] > arr[j + 1])  {
-                count++;
+
                 swap(&arr[j], &arr[j + 1]);
             }
         }
             }
         }
 
-void insertionsort(int arr[], int size) {
-    for (int i = 1; i < size; i++) {
+void insertionsort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
         int key = arr[i];
         int j = i - 1;
         while (j >= 0 && arr[j] > key) {
+            c++;
             arr[j + 1] = arr[j];
             j--;
+            s++;
         }
         arr[j + 1] = key;
     }
@@ -46,45 +50,62 @@ void selectionsort(int arr[], int size) {
   
         
         for (int j = i + 1; j < size; j++) {
+            c++;
             if (arr[j] < arr[min_index]) {
                 min_index = j;
             }
-        else {
+        }
+        if (min_index != i) {
         swap(&arr[i], &arr[min_index]);
 
         }    
     }
     }
-    }
 
 void merge(int arr[], int l, int m, int r){
  int i, j, k;
- int n1 = m - l + 1;
- int n2 = r - m;
- int L[n1], R[n2];
+ int a = m - l + 1;
+ int b = r - m;
+ int L[a], R[b];
 
- for (i = 0; i < n1; i++){
+ for (i = 0; i < a; i++){
     L[i] = arr[l + i];
     }
 
-for (j = 0; j < n2; j++){
+for (j = 0; j < b; j++){
     R[j] = arr[m + 1 + j];
     }
 
 i=0;
 j=0;
 k=l;
-while (i < n1 && j < n2){
+while (i < a && j < b){
+     c++ ;
     if (L[i] <= R[j]){
         arr[k] = L[i];
         i++;
+       
     }
     else{
         arr[k] = R[j];
         j++;
     }
+    s++ ;
     k++;
 }
+while (i < a){
+    arr[k] = L[i];
+    i++;
+    k++;
+    s++;
+    }
+
+while (j < b){
+    arr[k] = R[j];
+    j++;
+    k++;
+    s++;
+    }
 }
 
 void mergesort(int arr[], int l, int r) {
@@ -147,7 +168,9 @@ int main(){
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
-    return 0;
+ 
+    printf("\nTotal comparison: %d\n", c);
+    printf("Total swap: %d\n", s);
 }
 
 
