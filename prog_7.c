@@ -1,11 +1,6 @@
 #include <stdio.h>
 
-void swapNumbers(int *a, int *b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+void  swapNumbers(int *a, int *b);
 
 void heapifyMin(int arr[], int n, int i)
 {
@@ -49,7 +44,7 @@ void buildMinHeap(int arr[], int n)
 {
     int i;
 
-    for (i = n / 2 - 1; i >= 0; i--)
+    for (int i = n / 2 - 1; i >= 0; i--)
     {
         heapifyMin(arr, n, i);
     }
@@ -57,9 +52,8 @@ void buildMinHeap(int arr[], int n)
 
 void buildMaxHeap(int arr[], int n)
 {
-    int i;
 
-    for (i = n / 2 - 1; i >= 0; i--)
+    for (int i = n / 2 - 1; i >= 0; i--)
     {
         heapifyMax(arr, n, i);
     }
@@ -73,13 +67,19 @@ void printArray(int arr[], int n)
     printf("\n");
 }
 
+void swapNumbers(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+
 int main()
 {
     int n, i;
-
     printf("Enter number of elements: ");
     scanf("%d", &n);
-
     int original[n];
     int minHeap[n];
     int maxHeap[n];
@@ -98,10 +98,8 @@ int main()
 
     buildMinHeap(minHeap, n);
     buildMaxHeap(maxHeap, n);
-
     printf("\nOriginal Array: ");
     printArray(original, n);
-
     printf("Min Heap Array: ");
     printArray(minHeap, n);
 
@@ -109,4 +107,4 @@ int main()
     printArray(maxHeap, n);
 
     return 0;
-}
+    }
