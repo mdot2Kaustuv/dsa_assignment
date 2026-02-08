@@ -17,8 +17,8 @@ void bfs(int graph[MAX][MAX], int visited[MAX], int start, int n) {
                 queue[rear++] = i;
             }
         }
-    }
-}
+        }
+        }
 
 
 
@@ -60,9 +60,11 @@ int n = 5;
 addedge(graph, 0, 1);
 addedge(graph, 0, 2);   
 addedge(graph, 1, 3);
-addedge(graph, 1, 4);   
-
+addedge(graph, 1, 4);
+addedge(graph, 2, 4);
+addedge(graph, 3, 4);   
 displaygraph(graph, n);
+
 printf("\nBFS Traversal: ");
 bfs(graph, visited, 0, n);
 
@@ -72,7 +74,6 @@ for (int i = 0; i < n; i++) {
 }
 dfs(graph, visited, 0, n);
 printf("\n");
-
 
 }
 
