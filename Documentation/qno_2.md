@@ -2,7 +2,7 @@
 
 \## Infix to Postfix Expression Converter using Stack
 
-This program converts mathematical expressions from infix notation  like `a+b\*c` to postfix notation  like `abc\*+` . It uses a stack to handle operator precedence correctly.
+This program converts mathematical expressions from infix notation  like `a+b\\\*c` to postfix notation  like `abc\\\*+` . It uses a stack to handle operator precedence correctly.
 
 
 
@@ -24,9 +24,9 @@ This program uses the \*\*stack\*\* data structure to temporarily store operator
 
 struct Stack {
 
-&nbsp;   char stack\[MAX];
+\&nbsp;   char stack\\\[MAX];
 
-&nbsp;   int top;
+\&nbsp;   int top;
 
 };
 
@@ -36,7 +36,7 @@ struct Stack {
 
 \*\*Components:\*\*
 
-\- `stack\[MAX]`: A character array that stores operators like `+`, `-`, `\*`, `/`, `^`, and `(`. `MAX` is set to 100.
+\- `stack[MAX]`: A character array that stores operators like `+`, `-`, `\\\*`, `/`, `^`, and `(`. `MAX` is set to 100.
 
 \- `top`: An integer that tracks the index of the top element in the stack. When `top = -1`, the stack is empty.
 
@@ -44,9 +44,9 @@ struct Stack {
 
 \*\*Why we need conversion:\*\*
 
-\- \*\*Infix notation:\*\* `a + b \* c` - operator is between operands 
+\- \*\*Infix notation:\*\* `a + b \\\* c` - operator is between operands
 
-\- \*\*Postfix notation:\*\* `a b c \* +` - operator comes after operands 
+\- \*\*Postfix notation:\*\* `a b c \\\* +` - operator comes after operands
 
 
 
@@ -70,7 +70,7 @@ struct Stack {
 
 
 
-\### 1. `void initStack(struct Stack\* s)`
+\### 1. `void initStack(struct Stack\\\* s)`
 
 \*\*Purpose:\*\* Initialize the stack to make it ready for use.
 
@@ -90,7 +90,7 @@ struct Stack {
 
 
 
-\### 2. `int isEmpty(struct Stack\* s)`
+\### 2. `int isEmpty(struct Stack\\\* s)`
 
 \*\*Purpose:\*\* Check if the stack has no elements.
 
@@ -112,7 +112,7 @@ struct Stack {
 
 
 
-\### 3. `int isfull(struct Stack\* s)`
+\### 3. `int isfull(struct Stack\\\* s)`
 
 \*\*Purpose:\*\* Check if the stack is full.
 
@@ -134,7 +134,7 @@ struct Stack {
 
 
 
-\### 4. `void push(struct Stack\* s, char c)`
+\### 4. `void push(struct Stack\\\* s, char c)`
 
 \*\*Purpose:\*\* Add an operator to the stack.
 
@@ -164,7 +164,7 @@ struct Stack {
 
 
 
-\### 5. `char pop(struct Stack\* s)`
+\### 5. `char pop(struct Stack\\\* s)`
 
 \*\*Purpose:\*\* Remove and return the top operator from the stack.
 
@@ -180,7 +180,7 @@ struct Stack {
 
 \- The operator at the top of the stack.
 
-\- Returns `'\\0'` if the stack is empty.
+\- Returns `'\\\\0'` if the stack is empty.
 
 
 
@@ -216,7 +216,7 @@ struct Stack {
 
 \- `3` for `^` (exponentiation - highest priority)
 
-\- `2` for `\*` and `/` (multiplication and division)
+\- `2` for `\\\*` and `/` (multiplication and division)
 
 \- `1` for `+` and `-` (addition and subtraction - lowest priority)
 
@@ -232,7 +232,7 @@ struct Stack {
 
 \*\*Why precedence matters:\*\*
 
-In mathematics, certain operations must be done before others. For example, in `2 + 3 \* 4`, we calculate `3 \* 4 = 12` first, then `2 + 12 = 14`. We don't calculate `2 + 3 = 5` first.
+In mathematics, certain operations must be done before others. For example, in `2 + 3 \\\* 4`, we calculate `3 \\\* 4 = 12` first, then `2 + 12 = 14`. We don't calculate `2 + 3 = 5` first.
 
 
 
@@ -244,7 +244,7 @@ In mathematics, certain operations must be done before others. For example, in `
 
 
 
-\### 7. `void infixtopostfix(char \*infix)`
+\### 7. `void infixtopostfix(char \\\*infix)`
 
 \*\*Purpose:\*\* The main function that converts an infix expression to postfix format.
 
@@ -262,33 +262,33 @@ In mathematics, certain operations must be done before others. For example, in `
 
 2\. Goes through each character in the input expression using a loop:
 
-&nbsp;  - \*\*If character is a letter (a-z or A-Z):\*\*
+   - \*\*If character is a letter (a-z or A-Z):\*\*
 
-&nbsp;    - Adds it directly to the result (operands stay in same order).
+     - Adds it directly to the result (operands stay in same order).
 
-&nbsp;  - \*\*If character is `(`:\*\*
+   - \*\*If character is `(`:\*\*
 
-&nbsp;    - Pushes it onto the stack (we need to process what's inside parentheses first).
+     - Pushes it onto the stack (we need to process what's inside parentheses first).
 
-&nbsp;  - \*\*If character is `)`:\*\*
+   - \*\*If character is `)`:\*\*
 
-&nbsp;    - Pops from stack and adds to result until we find the matching `(`.
+     - Pops from stack and adds to result until we find the matching `(`.
 
-&nbsp;    - Removes the `(` from the stack.
+     - Removes the `(` from the stack.
 
-&nbsp;  - \*\*If character is an operator (+, -, \*, /, ^):\*\*
+   - \*\*If character is an operator (+, -, \*, /, ^):\*\*
 
-&nbsp;    - While the stack is not empty AND the top operator has equal or higher precedence:
+     - While the stack is not empty AND the top operator has equal or higher precedence:
 
-&nbsp;      - Pops from the stack and adds to result.
+       - Pops from the stack and adds to result.
 
-&nbsp;    - Pushes the current operator onto the stack.
+     - Pushes the current operator onto the stack.
 
 3\. After processing all characters:
 
-&nbsp;  - Pops all remaining operators from the stack and adds them to result.
+   - Pops all remaining operators from the stack and adds them to result.
 
-4\. Adds a null terminator `'\\0'` to the result string to mark the end.
+4\. Adds a null terminator `'\\\\0'` to the result string to mark the end.
 
 5\. Prints the postfix expression.
 
@@ -312,7 +312,7 @@ The `main()` function is the entry point of the program.
 
 \*\*Working:\*\*
 
-1\. Declares a character array `char infix\[MAX]` to store the user's input.
+1\. Declares a character array `char infix\\\[MAX]` to store the user's input.
 
 2\. Prompts the user with the message: `"Enter an infix expression: "`.
 
@@ -320,9 +320,9 @@ The `main()` function is the entry point of the program.
 
 4\. Calls `infixtopostfix(infix)` which:
 
-&nbsp;  - Converts the infix expression to postfix.
+   - Converts the infix expression to postfix.
 
-&nbsp;  - Prints the result automatically.
+   - Prints the result automatically.
 
 5\. Returns `0` to indicate successful program completion.
 
@@ -340,9 +340,9 @@ The `main()` function is the entry point of the program.
 
 ```
 
-Enter an infix expression: a+b\*c
+Enter an infix expression: a+b\\\*c
 
-abc\*+
+abc\\\*+
 
 ```
 
@@ -350,9 +350,9 @@ abc\*+
 
 ```
 
-Enter an infix expression: (a+b)\*c
+Enter an infix expression: (a+b)\\\*c
 
-ab+c\*
+ab+c\\\*
 
 ```
 
@@ -367,30 +367,14 @@ ab+c-
 ```
 
 
-
-\*\*Example 4:\*\*
-
-```
-
-Enter an infix expression: a^b^c
-
-abc^^
-
-```
-
-\*\*Explanation:\*\* Exponentiation is right-associative, so `b^c` is done first.
-
-
-
 \*\*Example 5:\*\*
 
 ```
 
-Enter an infix expression: a+b\*c-d/e
+Enter an infix expression: a+b\\\*c-d/e
 
-abc\*+de/-
+abc\\\*+de/-
 
 ```
-
 
 
