@@ -16,8 +16,8 @@ A regular integer array to store numbers that need to be sorted.
 
 ### Global Counters
 ```c
-int c;  // Counts comparisons
-int s;  // Counts swaps/shifts
+int c;  
+int s;  
 ```
 
 **Why global counters:**
@@ -315,4 +315,5 @@ Total swap: 119
 | Insertion Sort | O(n²) | O(1) | Stable | Small or nearly sorted arrays |
 | Selection Sort | O(n²) | O(1) | Unstable | Minimizing swaps |
 | Merge Sort | O(n log n) | O(n) | Stable | Large arrays, guaranteed performance |
+
 
