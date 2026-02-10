@@ -215,12 +215,6 @@ Max Heap Array: 30 25 15 10 20
 
 **Min Heap Array:** `10 20 15 30 25`
 ```
-Tree representation:
-      10  (smallest at root)
-     /  \
-   20    15
-  / \
- 30  25
 
 Properties:
 - 10 ≤ 20 and 10 ≤ 15 
@@ -259,3 +253,4 @@ Max Heap Array: 10 5 8 4 1 3 6
 **Max Heap:** `10 5 8 4 1 3 6`
 - Root is 10 (largest element in array)
 - Every parent is larger than its children
+
